@@ -1,6 +1,11 @@
-const LOGIN = "login"
-const LOGOUT = "logout"
-export const authReducer = (initialState, action) => {
+const LOGIN = "LOGIN"
+const LOGOUT = "LOGOUT"
+
+export const initialStateLogger = {
+    type : "LOGIN"
+}
+
+export function authReducer(state = initialStateLogger, action){
     switch (action.type) {
         case LOGIN:
             return {
@@ -12,6 +17,6 @@ export const authReducer = (initialState, action) => {
                 LOGOUT: false
             }
         default:
-            return initialState
+            return state
     }
 }
