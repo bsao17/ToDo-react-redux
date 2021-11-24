@@ -3,12 +3,7 @@ import {tasksReducer} from "./reducer/tasksReducer";
 import uniqid from "uniqid";
 
 export const initialState = {
-    todos: [{
-        id: uniqid(),
-        date: "",
-        todo: "",
-        completed: false
-    }]
+    todos: []
 }
 
 export default function configureStore(state = initialState){

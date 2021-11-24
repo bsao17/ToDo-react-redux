@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addTask} from "../../store/action/taskAction";
 import {useForm} from "react-hook-form";
 import uniqid from "uniqid";

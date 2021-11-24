@@ -2,13 +2,18 @@ import React from "react"
 import {useSelector} from "react-redux";
 
 function DisplayToDo(props){
-    const dateSelector = useSelector((state)=> state.todos[0].date)
-    const taskSelector = useSelector((state)=> state.todos[0].todo)
+    const todoSelector = useSelector((state)=> state.todos)
+    let index = 0
     return(
-        <div className={"m-5 card p-2 text-center"}>
-            <div>{dateSelector}</div>
-            <hr/>
-            <div>{taskSelector}</div>
+        <div className={"m-5 p-2 overflow-scroll"}>
+            <h3 className={"text-center"}>Task</h3>
+            <div>{todoSelector.map((todo)=>{
+                return (
+                    <div className={"card card-body d-flex flex-row justify-content-evenly"}>
+                        <div >{todo.date}</div>
+                        <div className={""}>{todo.todo}</div>
+                    </div>)
+            })} </div>
         </div>
     )
 }
