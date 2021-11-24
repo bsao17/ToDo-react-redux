@@ -1,16 +1,16 @@
 import {ADD_TASK, GET_TASKS} from "../action/taskAction";
-import {initialState} from "../store";
+import uniqid from "uniqid";
 
-export function tasksReducer(state = initialState, action){
-    switch (action.type){
+export function tasksReducer(state, action) {
+    switch (action.type) {
         case GET_TASKS:
             return {
-                ...state,
+                ...state
             }
         case ADD_TASK:
             return {
                 ...state,
-                task: [...state, state.task]
+                todos: [...state.todos, action.todos]
             }
         default:
             return state

@@ -1,15 +1,16 @@
+
 export const GET_TASKS = "GET_TASKS"
 export const ADD_TASK = "ADD_TASK"
 
-export function getTasks(){
+export const getTasks = () => {
     return {
-        type: GET_TASKS
+        type: GET_TASKS,
     }
 }
 
-export function addTask(task){
+export const addTask = (todos) => {
     return {
         type: ADD_TASK,
-        task
+        todos
     }
 }

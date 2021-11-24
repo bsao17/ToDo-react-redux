@@ -1,15 +1,19 @@
 import {createStore} from "redux";
-import {rootReducer} from "./reducer";
+import {tasksReducer} from "./reducer/tasksReducer";
+import uniqid from "uniqid";
 
 export const initialState = {
-    id: 1,
-    date: "today",
-    task: "First Task"
+    todos: [{
+        id: uniqid(),
+        date: "",
+        todo: "",
+        completed: false
+    }]
 }
 
 export default function configureStore(state = initialState){
     return createStore(
-        rootReducer,
+        tasksReducer,
         initialState,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
