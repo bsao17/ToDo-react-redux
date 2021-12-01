@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import styleActionToDo from "./actionToDo.module.scss"
+import React from 'react';
+import styleActionToDo from "./actionBarToDo.module.scss"
+import {useSelector} from "react-redux";
 
-function ActionToDo({activeForm}){
+function ActionBarToDo({activeForm}){
     return(
         <div>
             <section className={styleActionToDo.container}>
@@ -13,4 +14,4 @@ function ActionToDo({activeForm}){
     )
 }
 
-export default ActionToDo;
+export default ActionBarToDo;

@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import './App.scss';
-import ActionToDo from "./components/actionToDo/ActionToDo";
+import ActionBarToDo from "./components/actionBarToDo/ActionBarToDo";
 import Form from "./components/form/Form.js";
 import DisplayToDo from "./components/displayToDo/DisplayToDo";
 
@@ -24,7 +24,7 @@ function App() {
                 My List
             </h1>
             {displayForm ? <Form activeForm={setDisplayFalse}/> : <DisplayToDo/>}
-            <ActionToDo activeForm={setDisplayTrue}/>
+            <ActionBarToDo activeForm={setDisplayTrue}/>
         </div>
     );
 }
