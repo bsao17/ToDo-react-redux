@@ -1,19 +1,18 @@
 import React from "react"
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {taskCompleted} from "../../store/action/taskAction";
 
-function DisplayToDo(props){
-    const todoSelector = useSelector((state)=> state.todos)
-    let index = 0
+function DisplayToDo(){
+    const todoSelector = useSelector((state, i)=> state.todos)
+    const dispatch = useDispatch()
     return(
         <div className={"m-5 p-2 overflow-scroll"}>
-            <h3 className={"text-center"}>Task</h3>
-            <div>{todoSelector.map((todo)=>{
-                return (
-                    <div className={"card card-body d-flex flex-row justify-content-evenly"}>
-                        <div >{todo.date}</div>
-                        <div className={""}>{todo.todo}</div>
-                    </div>)
-            })} </div>
+            <div className={"text-light fw-bold bg-dark d-flex flex-row justify-content-between mb-2 p-2 rounded align-items-center"}>
+                <div >Date</div>
+                <div>Content</div>
+                <div>Completed</div>
+            </div>
+            <div>{todoSelector}</div>
         </div>
     )
 }

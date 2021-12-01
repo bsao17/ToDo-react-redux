@@ -8,18 +8,14 @@ function Form(props) {
     const handleTodo = useDispatch()
     const{register, handleSubmit} = useForm()
     const onSubmit = (data)=>{
-        console.log(props.todos)
         props.activeForm()
-        handleTodo(addTask({id: uniqid(), date: data.date, todo: data.task, completed: false}))
+        handleTodo(addTask({ todo: data.task}))
     }
     return (
         <div className={"container"}>
             <form className={"input-group-text d-flex flex-column"} onSubmit={handleSubmit(onSubmit)}>
-                <input type="hidden" {...register("id")} id={"id"} value={`${uniqid()}`}/>
-                <label className={"form-label h4"} htmlFor="date">Date</label>
-                <input className={"form-control text-center"} type="text" {...register("date")} id={"date"}/>
                 <label className={"form-label h4"} htmlFor="task">Task</label>
-                <input className={"form-control text-center"} type="text" {...register("task")} id={"task"}/>
+                <input className={"form-control text-center"} type="text" {...register("task")} id={"task"} required/>
                 <input className={"btn btn-lg btn-success mt-2 "} type="submit"  value={"Add new task"}/>
             </form>
         </div>
