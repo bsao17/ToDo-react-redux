@@ -1,6 +1,6 @@
 import {ADD_TASK, DELETE_TASK, GET_TASKS} from "../action/taskAction";
 
-let id = 1
+let id = 0
 const initialState = {
     todo: [],
 }
