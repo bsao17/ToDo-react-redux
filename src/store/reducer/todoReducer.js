@@ -28,11 +28,8 @@ export function todoReducer(state = initialState, action) {
         case UPDATE_TASK:
             return {
                 ...state,
-                todo: [state.todo.filter((newState, index) => {
-                    if (state.todo.complete === newState[index].todo.complete) {
-                        console.log(newState[index].todo)
-                        return [newState[index].todo, newState[index].todo.complete = true]
-                    }
+                todo: [state.todo.map((newState, index)=>{
+                    console.log(newState[index])
                 })]
             }
 

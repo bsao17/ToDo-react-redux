@@ -14,12 +14,12 @@ function DisplayToDo() {
             </h3>
             <div className={"d-flex flex-column justify-content-lg-around mx-5"}>{todoSelector.map((todo) => {
                 return (
-                    <div>
+                    <div key={todo.id}>
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
                             <h5>{todo.todo}</h5>
-                            <input type="checkbox" value={todo.target} onChange={(event)=>{
-                                dispatch(updateTask())
+                            <input type="checkbox" onClick={(event)=>{
+                                dispatch(updateTask(event.target))
                             }}/>
                         </div>
                     </div>
