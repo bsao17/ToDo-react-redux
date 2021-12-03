@@ -1,11 +1,11 @@
-import {ADD_TASK, DELETE_TASK, GET_TASKS} from "../action/taskAction";
+import {ADD_TASK, DELETE_TASK, GET_TASKS, UPDATE_TASK} from "../action/taskAction";
 
 let id = 0
 const initialState = {
     todo: [],
 }
 
-export function todoReducer(state = initialState , action) {
+export function todoReducer(state = initialState, action) {
     switch (action.type) {
         case GET_TASKS:
             return {
@@ -19,8 +19,22 @@ export function todoReducer(state = initialState , action) {
         case DELETE_TASK:
             return {
                 ...state,
-                delete: [...state, {}]
+                delete: state.todo.filter((task) => {
+                    if (state.todo !== task.todo) {
+                        return task.todo
+                    }
+                })
             }
+        case UPDATE_TASK:
+            return {
+                ...state,
+                todo: [...state.todo.filter((index) => {
+                    if (state.id === index.todo.id) {
+                        return index.complete = true
+                    }
+                })]
+            }
+
         default:
             return state
     }

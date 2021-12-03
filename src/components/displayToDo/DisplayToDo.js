@@ -1,12 +1,13 @@
 import React from "react"
 import {useDispatch, useSelector} from "react-redux";
-import {taskCompleted} from "../../store/action/taskAction";
+import {updateTask} from "../../store/action/taskAction";
 
 function DisplayToDo() {
-    const todoSelector = useSelector((state, i) => state.todo)
+    const todoSelector = useSelector((state) => state.todo)
     const dispatch = useDispatch()
+
     return (
-        <div className={"m-5 p-2 overflow-scroll"}>
+        <div className={"m-5 p-2 overflow-scroll"} id={"container"}>
             <h3
                 className={"text-light fw-bold bg-dark d-flex flex-row justify-content-center mb-2 p-2 rounded align-items-center"}>
                 <div className={"mx-5"}>Content</div>
@@ -17,7 +18,9 @@ function DisplayToDo() {
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
                             <h5>{todo.todo}</h5>
-                            <input type="checkbox" value={"completed"}/>
+                            <input type="checkbox" value={todo.target} onChange={(event)=>{
+                                dispatch(updateTask())
+                            }}/>
                         </div>
                     </div>
                 )
