@@ -28,9 +28,9 @@ export function todoReducer(state = initialState, action) {
         case UPDATE_TASK:
             return {
                 ...state,
-                todo: [...state.todo.filter((index) => {
-                    if (state.id === index.todo.id) {
-                        return index.complete = true
+                todo: [...state.todo.filter((newState, index) => {
+                    if (state.id === newState[index].todo.id) {
+                        return newState.complete = true
                     }
                 })]
             }

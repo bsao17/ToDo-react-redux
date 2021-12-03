@@ -24,8 +24,9 @@ export const deleteTask = (index) => {
     }
 }
 
-export const updateTask = ()=>{
+export const updateTask = (index)=>{
     return {
         type: UPDATE_TASK,
+        index
     }
 }
