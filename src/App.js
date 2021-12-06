@@ -7,13 +7,10 @@ import DisplayToDo from "./components/displayToDo/DisplayToDo";
 function App() {
     const [displayForm, setDisplayForm] = useState(false)
 
-    function setDisplayTrue() {
-        setDisplayForm(true)
+    function toggleDisplayForm() {
+        setDisplayForm(!displayForm)
     }
 
-    function setDisplayFalse() {
-        setDisplayForm(false)
-    }
 
     return (
         <div className="App card card-body">
@@ -23,8 +20,11 @@ function App() {
             } id={"title"}>
                 My List
             </h1>
-            {displayForm ? <Form activeForm={setDisplayFalse}/> : <DisplayToDo/>}
-            <ActionBarToDo activeForm={setDisplayTrue}/>
+            { displayForm ?
+                <Form activeForm={toggleDisplayForm}>
+                    {<input type="text" placeholder={"test input"}/>}
+            </Form> : <DisplayToDo/>}
+            <ActionBarToDo toggleDisplayForm={toggleDisplayForm}/>
         </div>
     );
 }
