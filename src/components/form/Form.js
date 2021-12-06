@@ -1,20 +1,6 @@
-import React, {createRef, useEffect, useRef} from 'react';
-import {useDispatch} from "react-redux";
-import {addTask} from "../../store/action/taskAction";
-import {useForm} from "react-hook-form";
+import React from 'react';
 
-
-
-function Form({toggleDisplayForm, children}) {
-    /*const handleTodo = useDispatch()
-    const{register, handleSubmit} = useForm()
-    const inputRef = useRef(null)
-
-    const onSubmit = (data)=>{
-        toggleDisplayForm()
-        handleTodo(addTask({ todo: data.task}))
-    }*/
-
+function Form({children}) {
     return (
         <div>{children}</div>
     )
