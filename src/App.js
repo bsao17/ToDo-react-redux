@@ -1,15 +1,8 @@
 import React, {useState} from "react"
 import './App.scss';
 import ActionBarToDo from "./components/actionBarToDo/ActionBarToDo";
-import Form from "./components/form/Form.js";
-import DisplayToDo from "./components/displayToDo/DisplayToDo";
 
 function App() {
-    const [displayForm, setDisplayForm] = useState(false)
-
-    function toggleDisplayForm() {
-        setDisplayForm(!displayForm)
-    }
 
 
     return (
@@ -20,11 +13,7 @@ function App() {
             } id={"title"}>
                 My List
             </h1>
-            { displayForm ?
-                <Form activeForm={toggleDisplayForm}>
-                    {<input type="text" placeholder={"test input"}/>}
-            </Form> : <DisplayToDo/>}
-            <ActionBarToDo toggleDisplayForm={toggleDisplayForm}/>
+            <ActionBarToDo/>
         </div>
     );
 }
