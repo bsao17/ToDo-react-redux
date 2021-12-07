@@ -1,10 +1,20 @@
 import React, {useState} from "react"
 import './App.scss';
 import ActionBarToDo from "./components/actionBarToDo/ActionBarToDo";
+import Form from "./components/form/Form.js";
+import DisplayToDo from "./components/displayToDo/DisplayToDo";
 
 function App() {
+    const [displayForm, setDisplayForm] = useState(false)
 
+    function toggleDisplayForm() {
+        setDisplayForm(!displayForm)
+    }
+    function inputFocus(item){
+        item.current.focus()
+    }
 
+    console.log(displayForm)
     return (
         <div className="App card card-body">
             <h1 className={
@@ -13,7 +23,8 @@ function App() {
             } id={"title"}>
                 My List
             </h1>
-            <ActionBarToDo/>
+
+            <ActionBarToDo toggleDisplayForm={toggleDisplayForm} inputRef={inputFocus}/>
         </div>
     );
 }
