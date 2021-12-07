@@ -1,11 +1,10 @@
-import React, {useState} from "react"
+import React from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {deleteTask, updateTask} from "../../store/action/taskAction";
 
 function DisplayToDo() {
     const todoSelector = useSelector((state) => state.todo)
     const dispatch = useDispatch()
-    const [displayForm, setDisplayForm] = useState(false)
 
 
     return (
