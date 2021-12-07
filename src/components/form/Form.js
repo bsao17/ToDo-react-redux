@@ -12,9 +12,9 @@ function Form({}) {
     return (
         <div>
             <div className={"card card-body"}>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form className={" d-flex flex-column"} onSubmit={handleSubmit(onSubmit)}>
                     <label className={"fw-bold text-center h3"} htmlFor="newTask">New Task</label>
-                    <input type="text" {...register("newTask")} />
+                    <input type="text" className={"form-control text-center my-2"} {...register("newTask")} />
                     <input className={"btn btn-success my-2"} type="submit" value={"Add New Item"}/>
                 </form>
             </div>
