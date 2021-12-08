@@ -1,4 +1,4 @@
-import {ADD_TASK, DELETE_TASK, GET_TASKS, INPUT_FOCUS, UPDATE_TASK} from "../action/taskAction";
+import {ADD_TASK, DELETE_TASK, GET_TASKS, UPDATE_TASK} from "../action/taskAction";
 
 let id = 0
 const initialState = {
@@ -26,13 +26,6 @@ export function todoReducer(state = initialState, action) {
                 ...state,
                 todo: [{id: state.todo.id, todo: state.todo, complete: state.todo}]
             }
-        case INPUT_FOCUS:
-            return {
-                ...state,
-                todo: action.item.current.focus()
-            }
-
-
         default:
             return state
     }

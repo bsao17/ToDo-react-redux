@@ -1,8 +1,13 @@
-
 $secondary: #a6a591;
 @import "node_modules/bootstrap/scss/bootstrap";
 
-body{
+.App {
+  width: 80vw;
+  height: 90vh;
+  position: relative;
+}
+
+body {
   width: 100%;
   height: 100vh;
   background: #eaddbc;
@@ -10,16 +15,15 @@ body{
   justify-content: center;
   align-items: center;
 }
-.App{
-  width: 80vw;
-  height: 90vh;
-  position: relative;
-  border: solid 3px gray;
-}
+
 #title{
+  box-sizing: content-box;
+}
+
+#title {
   border: solid darkgrey 3px;
   border-radius: 15px 0 15px 0;
   background: #989898;
   box-shadow: black 1px 1px 3px,
-              black -1px -1px 3px;
+  black -1px -1px 3px;
 }

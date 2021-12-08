@@ -1,30 +1,37 @@
-import React, {useState} from "react"
+import React, {useRef, useState} from "react"
 import './App.scss';
-import ActionBarToDo from "./components/actionBarToDo/ActionBarToDo";
-import Form from "./components/form/Form.js";
-import DisplayToDo from "./components/displayToDo/DisplayToDo";
+import AddItem from "./components/actionBarToDo/AddItem";
 
 function App() {
     const [displayForm, setDisplayForm] = useState(false)
+    const [listTitle, setListTitle] = useState("Title List")
+    const titleRef = useRef(null)
 
     function toggleDisplayForm() {
         setDisplayForm(!displayForm)
     }
-    function inputFocus(item){
+
+    function inputFocus(item) {
         item.current.focus()
     }
 
-    console.log(displayForm)
+    function changeTitle(){
+       setListTitle(titleRef.current.value)
+        console.log(titleRef, listTitle)
+    }
+
+
     return (
         <div className="App card card-body">
             <h1 className={
                 "fw-bold text-center p-2" +
                 "  w-50 mx-auto mt-2 text-dark"
             } id={"title"}>
-                My List
+                {listTitle}
             </h1>
+            <input ref={titleRef} className={'w-25 mx-auto bg-light'} type="text" onChange={()=>{changeTitle()}} id={'title'} placeholder={'Choose your Title List'}/>
 
-            <ActionBarToDo toggleDisplayForm={toggleDisplayForm} inputRef={inputFocus}/>
+            <AddItem toggleDisplayForm={toggleDisplayForm} inputRef={inputFocus}/>
         </div>
     );
 }
