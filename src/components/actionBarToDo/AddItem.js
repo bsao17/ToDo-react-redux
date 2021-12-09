@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styleActionToDo from "./actionBarToDo.module.scss"
+import styleActionToDo from "./addItem.module.scss"
 import Form from "../form/Form";
 import ShowList from "../displayToDo/ShowList";
 import {useDispatch, useSelector} from "react-redux";
@@ -14,8 +14,7 @@ function AddItem() {
             {showSelector ? <Form/> : <ShowList/>}
             <section className={styleActionToDo.container}>
                 <button className={styleActionToDo.more} onClick={()=>{
-                    dispatchShowForm(showForm())
-                }}> + </button>
+                    dispatchShowForm(showForm())}}> + </button>
                 <button className={styleActionToDo.completed}>Completed</button>
             </section>
         </div>

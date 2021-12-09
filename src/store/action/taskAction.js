@@ -9,10 +9,10 @@ export const getTasks = () => {
     }
 }
 
-export const addTask = (todo) => {
+export const addTask = (item) => {
     return {
         type: ADD_TASK,
-        payload: todo
+        item
     }
 }
 

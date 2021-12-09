@@ -5,7 +5,6 @@ import {Provider} from "react-redux";
 import {createStore} from "redux";
 import {getTasks} from "./store/action/taskAction";
 import {rootReducer} from "./store";
-import {showForm} from "./store/action/formAction";
 
 const store = createStore(
     rootReducer,

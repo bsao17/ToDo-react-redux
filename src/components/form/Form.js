@@ -1,12 +1,18 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
-import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import {addTask} from "../../store/action/taskAction";
+import {showForm} from "../../store/action/formAction";
 
 function Form() {
     const {register, handleSubmit, setFocus} = useForm()
+    const dispatch = useDispatch()
     const onSubmit = (data) => {
         console.log(data)
+        dispatch(addTask(data))
+        dispatch(showForm())
     }
+
     useEffect(() => {
         setFocus("newTask")
     }, [setFocus])
@@ -16,9 +22,7 @@ function Form() {
                 <form className={" d-flex flex-column"} onSubmit={handleSubmit(onSubmit)}>
                     <label className={"fw-bold text-center h3"} htmlFor="newTask">Complete List</label>
                     <input type="text" className={"form-control text-center my-2"} {...register("newTask")} />
-                    <input className={"btn btn-success my-2"} type="submit" onClick={()=>{
-
-                    }} value={"Add New Item"}/>
+                    <input className={"btn btn-success my-2"} type="submit" value={"Add New Item"}/>
                 </form>
             </div>
         </div>
