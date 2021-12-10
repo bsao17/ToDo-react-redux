@@ -2,7 +2,7 @@ import React from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {updateTask} from "../../store/action/taskAction";
 
-function ShowList() {
+function ShowingList() {
     const selector = useSelector((state) => state.list.item)
     const dispatch = useDispatch()
 
@@ -18,7 +18,7 @@ function ShowList() {
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
                             <h5 key={todo.todo}>{todo.item}</h5>
-                            <input type="checkbox" onClick={()=>dispatch(updateTask())}/>
+                            <input type="checkbox" onClick={() => dispatch(updateTask())}/>
                         </div>
                     </div>
                 )
@@ -28,4 +28,4 @@ function ShowList() {
     )
 }
 
-export default ShowList
+export default ShowingList

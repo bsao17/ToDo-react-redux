@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react"
 import './App.scss';
-import AddItem from "./components/actionBarToDo/AddItem";
+import AddItem from "./components/actionBar/addItem/AddItem";
 
 function App() {
     const [displayForm, setDisplayForm] = useState(false)
@@ -15,8 +15,8 @@ function App() {
         item.current.focus()
     }
 
-    function changeTitle(){
-       setListTitle(titleRef.current.value)
+    function changeTitle() {
+        setListTitle(titleRef.current.value)
         console.log(titleRef, listTitle)
     }
 
@@ -29,7 +29,9 @@ function App() {
             } id={"title"}>
                 {listTitle}
             </h1>
-            <input ref={titleRef} className={'w-25 mx-auto bg-light'} type="text" onChange={()=>{changeTitle()}} id={'title'} placeholder={'Choose your Title List'}/>
+            <input ref={titleRef} className={'w-25 mx-auto bg-light'} type="text" onChange={() => {
+                changeTitle()
+            }} id={'title'} placeholder={'Choose your Title List'}/>
 
             <AddItem toggleDisplayForm={toggleDisplayForm} inputRef={inputFocus}/>
         </div>
