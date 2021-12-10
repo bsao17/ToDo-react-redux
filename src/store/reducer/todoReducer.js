@@ -1,4 +1,4 @@
-import {ADD_TASK, DELETE_TASK, GET_TASKS, UPDATE_TASK} from "../action/taskAction";
+import {ADD_TASK, GET_TASKS} from "../action/taskAction";
 
 let id = 0
 const initialState = {
