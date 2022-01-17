@@ -1,6 +1,6 @@
 import React from "react"
 import {useDispatch, useSelector} from "react-redux";
-import {updateTask} from "../../store/action/taskAction";
+import {updateTask} from "../../app/action/taskAction";
 
 function ShowingList() {
     const selector = useSelector((state) => state.list.item)

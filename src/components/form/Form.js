@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
-import {addTask} from "../../store/action/taskAction";
-import {showForm} from "../../store/action/formAction";
+import {addTask} from "../../app/action/taskAction";
+import {showForm} from "../../app/action/formAction";
 
 function Form() {
     const {register, handleSubmit, setFocus} = useForm()

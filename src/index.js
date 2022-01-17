@@ -2,15 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {Provider} from "react-redux";
-import {createStore} from "redux";
-import {getTasks} from "./store/action/taskAction";
-import {rootReducer} from "./store";
-
-const store = createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
-store.dispatch(getTasks())
+import {store} from "./app/store";
 
 ReactDOM.render(
     <Provider store={store}>
