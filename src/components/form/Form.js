@@ -1,24 +1,33 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
 import {addItem, showingForm} from "../../features/toDo/toDoSlice";
 
+let id = 0
+
 function Form() {
-    const {register, handleSubmit, setFocus} = useForm()
     const dispatch = useDispatch()
-    const onSubmit = () => {
+    const ref = useRef("")
+    const onSubmit = (data) => {
         dispatch(showingForm(false))
+        dispatch(addItem({
+            id: ++id,
+            date: new Date().toLocaleString(),
+            task: data
+        }))
     }
 
     useEffect(() => {
-        setFocus("newTask")
-    }, [setFocus])
+        ref.current.focus()
+    }, [])
     return (
         <div>
             <div className={"card card-body"}>
-                <form className={" d-flex flex-column"} onSubmit={handleSubmit(onSubmit)}>
+                <form className={" d-flex flex-column"} onSubmit={()=>{
+                    onSubmit(ref.current.value)
+                }}>
                     <label className={"fw-bold text-center h3"} htmlFor="newTask">Complete List</label>
-                    <input type="text" className={"form-control text-center my-2"} {...register("newTask")} />
+                    <input ref={ref} type="text" className={"form-control text-center my-2"}  />
                     <input className={"btn btn-success my-2"} type="submit" value={"Add New Item"}/>
                 </form>
             </div>

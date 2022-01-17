@@ -6,7 +6,7 @@ const initialState = {
     items: [{
         id: id,
         date: new Date().toLocaleTimeString(),
-        item: ""
+        task: ""
     }],
     toggleForm: false
 }
@@ -16,7 +16,7 @@ export const toDoSlice = createSlice({
     initialState,
     reducers: {
         addItem: (state, action) => {
-            return state.items.push(action.payload)
+            state.items.push(action.payload)
         },
         removeItem: (state, action) => {
             state.items.filter((st) => {

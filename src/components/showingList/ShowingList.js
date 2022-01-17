@@ -19,7 +19,7 @@ function ShowingList() {
                     <div key={todo.id}>
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
-                            <h5 key={todo.item}>{todo.item}</h5>
+                            <h5 key={todo.item}>{todo.task}</h5>
                             <input type="checkbox" />
                         </div>
                     </div>
