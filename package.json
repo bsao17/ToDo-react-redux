@@ -2,10 +2,12 @@
   "name": "new-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://bsao17.github.io/toDoList",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
+    "gh-pages": "^3.2.3",
     "jquery": "^3.6.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -22,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "server": "json-server --watch database.json"
+    "server": "json-server --watch database.json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

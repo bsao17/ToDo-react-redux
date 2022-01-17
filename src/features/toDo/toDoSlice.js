@@ -1,13 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-let id = 0
-
 const initialState = {
-    items: [{
-        id: id,
-        date: new Date().toLocaleTimeString(),
-        task: ""
-    }],
+    items: [],
     toggleForm: false
 }
 
@@ -23,11 +17,11 @@ export const toDoSlice = createSlice({
                 return st.items !== action.payload
             })
         },
-        showingForm: (state, action)=>{
+        showingForm: (state, action) => {
             state.toggleForm = action.payload
         }
     }
 })
 
-export const { addItem, removeItem, showingForm } = toDoSlice.actions
+export const {addItem, removeItem, showingForm} = toDoSlice.actions
 export default toDoSlice.reducer
