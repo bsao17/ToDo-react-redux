@@ -2,7 +2,7 @@
   "name": "new-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://bsao17.github.io/toDoList",
+  "homepage": "http://bsao17.github.io/ToDo-react-redux",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.24.0",
