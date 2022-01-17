@@ -1,9 +1,11 @@
 import React from "react"
 import {useDispatch, useSelector} from "react-redux";
-import {updateTask} from "../../app/action/taskAction";
 
 function ShowingList() {
-    const selector = useSelector((state) => state.list.item)
+    const selector = useSelector((state) => {
+        console.log(state.toDoItems.items)
+        return state.toDoItems.items
+    })
     const dispatch = useDispatch()
 
     return (
@@ -17,8 +19,8 @@ function ShowingList() {
                     <div key={todo.id}>
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
-                            <h5 key={todo.todo}>{todo.item}</h5>
-                            <input type="checkbox" onClick={() => dispatch(updateTask())}/>
+                            <h5 key={todo.item}>{todo.item}</h5>
+                            <input type="checkbox" />
                         </div>
                     </div>
                 )

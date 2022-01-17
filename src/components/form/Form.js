@@ -1,16 +1,13 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
-import {addTask} from "../../app/action/taskAction";
-import {showForm} from "../../app/action/formAction";
+import {addItem, showingForm} from "../../features/toDo/toDoSlice";
 
 function Form() {
     const {register, handleSubmit, setFocus} = useForm()
     const dispatch = useDispatch()
-    const onSubmit = (data) => {
-        console.log(data)
-        dispatch(addTask(data))
-        dispatch(showForm())
+    const onSubmit = () => {
+        dispatch(showingForm(false))
     }
 
     useEffect(() => {

@@ -1,11 +1,14 @@
 import React, {useRef, useState} from "react"
 import './App.scss';
 import AddItem from "./components/actionBar/addItem/AddItem";
+import {showingForm} from "./features/toDo/toDoSlice";
+import {useDispatch} from "react-redux";
 
 function App() {
     const [displayForm, setDisplayForm] = useState(false)
     const [listTitle, setListTitle] = useState("Title List")
     const titleRef = useRef(null)
+    const dispatch = useDispatch()
 
     function toggleDisplayForm() {
         setDisplayForm(!displayForm)
@@ -33,7 +36,7 @@ function App() {
                 changeTitle()
             }} id={'title'} placeholder={'Choose your Title List'}/>
 
-            <AddItem toggleDisplayForm={toggleDisplayForm} inputRef={inputFocus}/>
+            <AddItem toggleDisplayForm={dispatch(showingForm)} inputRef={inputFocus}/>
         </div>
     );
 }
