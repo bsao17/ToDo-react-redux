@@ -10,7 +10,6 @@ function AddItem() {
         return state.toDoItems.toggleForm
     })
     const dispatch = useDispatch()
-    console.log(selector)
     return (
         <div>
             {selector ? <Form/> : <ShowingList/>}

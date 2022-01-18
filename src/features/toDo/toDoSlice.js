@@ -6,15 +6,18 @@ const initialState = {
 }
 
 export const toDoSlice = createSlice({
-    name: "toDo",
+    name: "todo",
     initialState,
     reducers: {
         addItem: (state, action) => {
             state.items.push(action.payload)
         },
         removeItem: (state, action) => {
-            state.items.filter((st) => {
-                return st.items !== action.payload
+            state.items.filter((it)=>{
+                if(it !== state.items){
+                    console.log(it.id)
+                    return state.items.pop(it)
+                }
             })
         },
         showingForm: (state, action) => {

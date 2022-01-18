@@ -1,9 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useDispatch} from "react-redux";
 import {addItem, showingForm} from "../../features/toDo/toDoSlice";
-
-// Init Id
-let id = 0
+import uniqid from "uniqid"
 
 function Form() {
     const dispatch = useDispatch()
@@ -11,8 +9,8 @@ function Form() {
     const onSubmit = (data) => {
         dispatch(showingForm(false))
         dispatch(addItem({
-            id: ++id,
-            date: new Date().toLocaleString(),
+            id: uniqid(),
+            date: new Date().toLocaleDateString(),
             task: data
         }))
     }

@@ -1,5 +1,7 @@
 import React from "react"
 import {useDispatch, useSelector} from "react-redux";
+import styles from "./showingList.module.scss"
+import {removeItem} from "../../features/toDo/toDoSlice";
 
 function ShowingList() {
     const selector = useSelector((state) => {
@@ -20,7 +22,11 @@ function ShowingList() {
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
                             <h5 key={todo.item}>{todo.task}</h5>
-                            <input type="checkbox" />
+                            <input className={styles.remove} type="submit" value={"X"} onClick={()=>{
+                                dispatch(removeItem({
+                                    id: todo.id,
+                                }))
+                            }} />
                         </div>
                     </div>
                 )
