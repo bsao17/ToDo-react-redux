@@ -5,8 +5,6 @@ const initialState = {
     toggleForm: false,
 }
 
-let id = -1
-
 export const toDoSlice = createSlice({
     name: "todo",
     initialState,
@@ -14,12 +12,12 @@ export const toDoSlice = createSlice({
         addItem: (state, action) => {
             state.items.push(action.payload)
         },
-        removeItem: (state, action) => {
-             state.items.forEach((item)=>{
-                 if(item.id === action.payload){
-                     return item.isDone = true
-                 }
-             })
+        isDoneItem: (state, action) => {
+            state.items.forEach((item) => {
+                if (item.id === action.payload) {
+                    return item.isDone = true
+                }
+            })
         },
         showingForm: (state, action) => {
             state.toggleForm = action.payload
@@ -27,5 +25,5 @@ export const toDoSlice = createSlice({
     }
 })
 
-export const {addItem, removeItem, showingForm} = toDoSlice.actions
+export const {addItem, isDoneItem, showingForm} = toDoSlice.actions
 export default toDoSlice.reducer

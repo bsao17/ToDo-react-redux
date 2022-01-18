@@ -3,7 +3,7 @@ import styleActionToDo from "./addItem.module.scss"
 import Form from "../../form/Form";
 import ShowingList from "../../showingList/ShowingList";
 import {useDispatch, useSelector} from "react-redux";
-import { addItem, removeItem, showingForm } from "../../../features/toDo/toDoSlice";
+import {showingForm} from "../../../features/toDo/toDoSlice";
 
 function AddItem() {
     const selector = useSelector((state) => {
