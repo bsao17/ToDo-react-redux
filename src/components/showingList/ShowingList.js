@@ -5,7 +5,6 @@ import {removeItem} from "../../features/toDo/toDoSlice";
 
 function ShowingList() {
     const selector = useSelector((state) => {
-        console.log(state.toDoItems.items)
         return state.toDoItems.items
     })
     const dispatch = useDispatch()

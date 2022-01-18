@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     items: [],
-    toggleForm: false
+    toggleForm: false,
 }
 
 export const toDoSlice = createSlice({
@@ -13,12 +13,7 @@ export const toDoSlice = createSlice({
             state.items.push(action.payload)
         },
         removeItem: (state, action) => {
-            state.items.filter((it)=>{
-                if(it !== state.items){
-                    console.log(it.id)
-                    return state.items.pop(it)
-                }
-            })
+            state.validated = true
         },
         showingForm: (state, action) => {
             state.toggleForm = action.payload

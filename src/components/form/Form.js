@@ -11,7 +11,8 @@ function Form() {
         dispatch(addItem({
             id: uniqid(),
             date: new Date().toLocaleDateString(),
-            task: data
+            task: data,
+            isDone: false
         }))
     }
     // Field focus
