@@ -8,6 +8,7 @@ function ShowingList() {
         return state.toDoItems.items
     })
     const dispatch = useDispatch()
+        console.log(selector)
 
     return (
         <div className={"m-5 p-2 overflow-scroll"} id={"container"}>
@@ -15,16 +16,14 @@ function ShowingList() {
                 className={"text-light fw-bold bg-dark d-flex flex-row justify-content-center mb-2 p-2 rounded align-items-center"}>
                 <div className={"mx-5"}>Content</div>
             </h3>
-            <div className={"d-flex flex-column justify-content-lg-around mx-5"}>{selector.map((todo) => {
+            <div className={"d-flex flex-column justify-content-lg-around mx-5"}>{selector.map((td) => {
                 return (
-                    <div key={todo.id}>
+                    <div key={td.id}>
                         <div className={"d-flex justify-content-between align-items-center "}>
-                            <code className={"h5 fw-bold mx-5"}>{todo.id} </code>
-                            <h5 key={todo.item}>{todo.task}</h5>
+                            <code className={"h5 fw-bold mx-5"}>{td.id} </code>
+                            <h5 key={td.item}>{td.task}</h5>
                             <input className={styles.remove} type="submit" value={"X"} onClick={()=>{
-                                dispatch(removeItem({
-                                    id: todo.id,
-                                }))
+                                dispatch(removeItem(td.id))
                             }} />
                         </div>
                     </div>
