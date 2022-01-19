@@ -20,19 +20,21 @@ function App() {
 
 
     return (
-        <div className="App card card-body">
-            <h1 className={
-                "fw-bold text-center p-2" +
-                "  w-50 mx-auto mt-2 text-dark"
-            } id={"title"}>
-                {listTitle}
-            </h1>
-            <input ref={titleRef} className={'w-25 mx-auto bg-light'} type="text" onChange={() => {
-                changeTitle()
-            }} id={'title'} placeholder={'Choose your Title List'}/>
+        <>
+            <div id={"container"} className = "App card card-body overflow-scroll position-relative">
+                <h1 className={
+                    "fw-bold text-center p-2" +
+                    "  w-50 mx-auto mt-2 text-dark"
+                } id={"title"}>
+                    {listTitle}
+                </h1>
+                <input ref={titleRef} className={'w-25 mx-auto bg-light'} type="text" onChange={() => {
+                    changeTitle()
+                }} id={'title'} placeholder={'Choose your Title List'}/>
 
-            <AddItem toggleDisplayForm={dispatch(showingForm)} inputRef={inputFocus}/>
-        </div>
+                    <AddItem toggleDisplayForm={dispatch(showingForm)} inputRef={inputFocus}/>
+            </div>
+        </>
     );
 }
 

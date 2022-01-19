@@ -18,7 +18,7 @@ function AddItem() {
                     dispatch(showingForm(true))
                 }}> +
                 </button>
-                <button className={styleActionToDo.completed}>Completed</button>
+                <button className={styleActionToDo.completed}>clear</button>
             </section>
         </div>
     )

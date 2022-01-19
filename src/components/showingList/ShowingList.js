@@ -10,7 +10,7 @@ function ShowingList() {
     const dispatch = useDispatch()
 
     return (
-        <div className={"m-5 p-2 overflow-scroll"} id={"container"}>
+        <div className={"m-5 p-2"} id={"container"}>
             <h3
                 className={"text-light fw-bold bg-dark d-flex flex-row justify-content-center mb-2 p-2 rounded align-items-center"}>
                 <div className={"mx-5"}>Content</div>
@@ -21,7 +21,7 @@ function ShowingList() {
                     (<div key={td.id} className={"bg-light"} >
                         <div className={"d-flex justify-content-between align-items-center "}>
                             <div className={"h5 fw-bold mx-5 text-danger"}>Is done</div>
-                            <h5 key={td.item} className={"text-muted"}>{td.task}</h5>
+                            <h5 key={td.item} className={"text-muted text-decoration-line-through"}>{td.task}</h5>
                             <input className={styles.remove} type="submit" value={"X"} onClick={() => {
                                 dispatch(isDoneItem(td.id))
                             }}/>
