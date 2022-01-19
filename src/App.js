@@ -5,7 +5,7 @@ import {showingForm} from "./features/toDo/toDoSlice";
 import {useDispatch} from "react-redux";
 
 function App() {
-    const [listTitle, setListTitle] = useState("Title List")
+    const [listTitle, setListTitle] = useState("")
     const titleRef = useRef(null)
     const dispatch = useDispatch()
 
@@ -30,7 +30,7 @@ function App() {
                 </h1>
                 <input ref={titleRef} className={'w-25 mx-auto bg-light'} type="text" onChange={() => {
                     changeTitle()
-                }} id={'title'} placeholder={'Choose your Title List'}/>
+                }} id={'title'} placeholder={'Enrez le titre de votre liste'}/>
 
                     <AddItem toggleDisplayForm={dispatch(showingForm)} inputRef={inputFocus}/>
             </div>
