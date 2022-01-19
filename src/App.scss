@@ -2,7 +2,7 @@ $secondary: #a6a591;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 .App {
-  width: 80vw;
+  width: 90vw;
   height: 90vh;
   position: relative;
 }
@@ -16,9 +16,6 @@ body {
   align-items: center;
 }
 
-#title {
-  box-sizing: content-box;
-}
 
 #title {
   border: solid darkgrey 3px;

@@ -10,7 +10,7 @@ function ShowingList() {
     const dispatch = useDispatch()
 
     return (
-        <div className={"m-5 p-2"} id={"container"}>
+        <div className={"m-5 p-2"} id={styles.container}>
             <h3
                 className={"text-light fw-bold bg-dark d-flex flex-row justify-content-center mb-2 p-2 rounded align-items-center"}>
                 <div className={"mx-5"}>Content</div>

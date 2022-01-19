@@ -10,14 +10,16 @@
 }
 
 .container {
-  width: 70%;
+  width: 90vw;
   margin: auto;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: #989898;
   border: solid white 3px;
   //border-radius: 0 0 5px 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   position: fixed;
 
