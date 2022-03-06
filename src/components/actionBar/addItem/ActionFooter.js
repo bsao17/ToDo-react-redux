@@ -20,7 +20,7 @@ function ActionFooter() {
                 </button>
                 <button className={styleActionToDo.completed} onClick={() => {
                     dispatch(clearList(true))
-                }} >clear</button>
+                }} >clear done tasks</button>
             </section>
         </div>
     )
