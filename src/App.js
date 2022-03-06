@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react"
 import './App.scss';
-import AddItem from "./components/actionBar/addItem/AddItem";
+import ActionFooter from "./components/actionBar/addItem/ActionFooter";
 import {showingForm} from "./features/toDo/toDoSlice";
 import {useDispatch} from "react-redux";
 
@@ -32,7 +32,7 @@ function App() {
                     changeTitle()
                 }} id={'title'} placeholder={'Enrez le titre de votre liste'}/>
 
-                    <AddItem toggleDisplayForm={dispatch(showingForm)} inputRef={inputFocus}/>
+                    <ActionFooter toggleDisplayForm={dispatch(showingForm)} inputRef={inputFocus}/>
             </div>
         </>
     );

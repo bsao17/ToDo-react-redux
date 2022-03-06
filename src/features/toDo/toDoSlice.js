@@ -13,17 +13,24 @@ export const toDoSlice = createSlice({
             state.items.push(action.payload)
         },
         isDoneItem: (state, action) => {
-            state.items.forEach((item) => {
-                if (item.id === action.payload) {
-                    return item.isDone = true
-                }
+            state.items.find((item) => {
+                return item.done = !item.done
             })
+
+            // task.done = !task.done
         },
         showingForm: (state, action) => {
             state.toggleForm = action.payload
+        },
+        clearList: (state, action) => {
+            state.items.forEach((st) => {
+                if (st.done === action.payload) {
+                    return state.items.pop(st.done)
+                }
+            })
         }
     }
 })
 
-export const {addItem, isDoneItem, showingForm} = toDoSlice.actions
+export const {addItem, isDoneItem, showingForm, clearList} = toDoSlice.actions
 export default toDoSlice.reducer

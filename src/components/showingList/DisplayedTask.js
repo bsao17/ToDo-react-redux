@@ -3,17 +3,11 @@ import {useDispatch, useSelector} from "react-redux";
 import styles from "./showingList.module.scss"
 import {isDoneItem} from "../../features/toDo/toDoSlice";
 
-function ShowingList() {
+function DisplayedTask() {
     const selectorItems = useSelector((state) => {
         return state.toDoItems.items
     })
-    const myDate = useSelector((state) => {
-        console.log(state)
-        return state.toDoItems.date
-    })
-    const selectorTime = useSelector((state) => {
-        return state.toDoItems.time
-    })
+
     const dispatch = useDispatch()
 
     return (
@@ -49,4 +43,4 @@ function ShowingList() {
     )
 }
 
-export default ShowingList
+export default DisplayedTask

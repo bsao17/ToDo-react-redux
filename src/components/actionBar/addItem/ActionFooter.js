@@ -1,27 +1,29 @@
 import React from 'react';
-import styleActionToDo from "./addItem.module.scss"
+import styleActionToDo from "./actionFooter.module.scss"
 import Form from "../../form/Form";
-import ShowingList from "../../showingList/ShowingList";
+import DisplayedTask from "../../showingList/DisplayedTask";
 import {useDispatch, useSelector} from "react-redux";
-import {showingForm} from "../../../features/toDo/toDoSlice";
+import {showingForm, clearList} from "../../../features/toDo/toDoSlice";
 
-function AddItem() {
+function ActionFooter() {
     const selector = useSelector((state) => {
         return state.toDoItems.toggleForm
     })
     const dispatch = useDispatch()
     return (
         <div>
-            {selector ? <Form/> : <ShowingList/>}
+            {selector ? <Form/> : <DisplayedTask/>}
             <section className={styleActionToDo.container}>
                 <button className={styleActionToDo.more} onClick={() => {
                     dispatch(showingForm(true))
                 }}> +
                 </button>
-                <button className={styleActionToDo.completed}>clear</button>
+                <button className={styleActionToDo.completed} onClick={() => {
+                    dispatch(clearList(true))
+                }} >clear</button>
             </section>
         </div>
     )
 }
 
-export default AddItem;
+export default ActionFooter;

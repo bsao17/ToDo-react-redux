@@ -4,6 +4,8 @@ import {addItem, showingForm} from "../../features/toDo/toDoSlice";
 import styles from "./form.module.scss"
 import uniqid from "uniqid"
 
+let id = 0;
+
 function Form() {
     const dispatch = useDispatch()
     const refDate = useRef("")
@@ -12,11 +14,11 @@ function Form() {
     const onSubmit = (date, time, data) => {
         dispatch(showingForm(false))
         dispatch(addItem({
-            id: uniqid(),
+            id: ++id,
             date: date,
             time: time,
             task: data,
-            isDone: false
+            done: false
         }))
     }
     // Field focus
@@ -30,15 +32,16 @@ function Form() {
                     <label className={"fw-bold text-center text-light h3"} htmlFor="newTask">Listing</label>
                     <input ref={refDate} type="date" className={"form-control text-center my-2"}/>
                     <input ref={refTime} type="time" className={"form-control text-center my-2"}/>
-                    <textarea ref={refData} className={"form-control text-center my-2"}/>
+                    <input ref={refData} className={"form-control text-center my-2"}/>
                     <div className={"d-flex justify-content-center align-items-center my-3"}>
-                    <input className={"btn btn-success border shadow-lg mx-2"} onClick={()=>{
-                        onSubmit( refDate.current.value, refTime.current.value, refData.current.value)
-                    }} type="submit" value={"Ajouter item"}/>
-                    <button className={"btn btn-danger border mx-2"} onClick={(event)=>{
-                        event.preventDefault()
+                        <input className={"btn btn-success border shadow-lg mx-2"} onClick={() => {
+                            onSubmit(refDate.current.value, refTime.current.value, refData.current.value)
+                        }} type="submit" value={"Ajouter item"}/>
+                        <button className={"btn btn-danger border mx-2"} onClick={(event) => {
+                            event.preventDefault()
                             dispatch(showingForm(false))
-                    }}>Annuler</button>
+                        }}>Cancel
+                        </button>
                     </div>
                 </form>
             </div>
