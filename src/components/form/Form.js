@@ -29,14 +29,14 @@ function Form() {
         <div>
             <div className={"card card-body my-2"} id={styles.container}>
                 <form className={" d-flex flex-column"}>
-                    <label className={"fw-bold text-center text-light h3"} htmlFor="newTask">Listing</label>
+                    <label className={"fw-bold text-center text-light h3"} htmlFor="newTask">New task</label>
                     <input ref={refDate} type="date" className={"form-control text-center my-2"}/>
                     <input ref={refTime} type="time" className={"form-control text-center my-2"}/>
                     <input ref={refData} className={"form-control text-center my-2"}/>
                     <div className={"d-flex justify-content-center align-items-center my-3"}>
                         <input className={"btn btn-success border shadow-lg mx-2"} onClick={() => {
                             onSubmit(refDate.current.value, refTime.current.value, refData.current.value)
-                        }} type="submit" value={"Ajouter item"}/>
+                        }} type="submit" value={"Add task"}/>
                         <button className={"btn btn-danger border mx-2"} onClick={(event) => {
                             event.preventDefault()
                             dispatch(showingForm(false))

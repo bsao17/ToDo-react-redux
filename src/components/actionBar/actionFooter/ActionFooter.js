@@ -9,6 +9,9 @@ function ActionFooter() {
     const selector = useSelector((state) => {
         return state.toDoItems.toggleForm
     })
+    const selectorItem = useSelector((state)=>{
+        return state.toDoItems.items
+    })
     const dispatch = useDispatch()
     return (
         <div>
@@ -19,7 +22,7 @@ function ActionFooter() {
                 }}> +
                 </button>
                 <button className={styleActionToDo.completed} onClick={() => {
-                    dispatch(clearList(true))
+                    dispatch(clearList(selectorItem))
                 }} >clear done tasks</button>
             </section>
         </div>

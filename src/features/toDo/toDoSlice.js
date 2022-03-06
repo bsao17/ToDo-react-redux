@@ -24,11 +24,9 @@ export const toDoSlice = createSlice({
             state.toggleForm = action.payload
         },
         clearList: (state, action) => {
-            state.items.forEach((st) => {
-                if (st.done === action.payload) {
-                    return state.items.pop(st.done)
-                }
-            })
+            if (state.items.done){
+                state.items.pop(action.payload)
+            }
         }
     }
 })
