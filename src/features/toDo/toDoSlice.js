@@ -14,7 +14,8 @@ export const toDoSlice = createSlice({
         },
         isDoneItem: (state, action) => {
             state.items.find((item) => {
-                return item.done = !item.done
+                if (action.payload === item.id)
+                    item.done = !item.done
             })
 
             // task.done = !task.done
