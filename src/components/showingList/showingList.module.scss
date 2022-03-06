@@ -1,8 +1,13 @@
 #container {
   width: 90%;
 }
-.remove {
+.toggleTaskToDo {
   background: red;
+  color: white;
+  border-radius: 5px;
+}
+.toggleTaskIsDone {
+  background: green;
   color: white;
   border-radius: 5px;
 }

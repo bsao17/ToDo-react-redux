@@ -18,12 +18,11 @@ function DisplayedTask() {
             </h3>
             <div className={"d-flex flex-column justify-content-lg-around mx-5"}>{selectorItems.map((td) => {
                 return (
-                    td.isDone ?
+                    td.done ?
                     (<div key={td.id} className={"bg-light"} >
                         <div className={"d-flex justify-content-between align-items-center"}>
-                            <div className={"h5 fw-bold mx-5 text-danger"}>Is done</div>
                             <h5 key={td.item} className={"text-muted text-decoration-line-through"}>{td.task}</h5>
-                            <input className={styles.remove} type="submit" value={"X"} onClick={() => {
+                            <input className={styles.toggleTaskIsDone} type="submit" value={"is done"} onClick={() => {
                                 dispatch(isDoneItem(td.id))
                             }}/>
                         </div>
@@ -32,7 +31,7 @@ function DisplayedTask() {
                                 <p className={"col"} id={styles.date}><span className={"text-dark fw-light h6"}>Date:</span> {td.date}</p>
                                 <p className={"col"}><span className={"text-dark fw-light h6"}>Heure:</span> {td.time}</p>
                                 <h5 className={"col"} key={td.item}>{td.task}</h5>
-                                <input className={styles.remove} type="submit" value={"X"} onClick={() => {
+                                <input className={styles.toggleTaskToDo} type="submit" value={"X"} onClick={() => {
                                     dispatch(isDoneItem(td.id))
                                 }}/>
                             </div>
